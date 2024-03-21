@@ -1,0 +1,704 @@
+body{
+    font-family: "Roboto", sans-serif;
+    background-image: linear-gradient(90deg, skyblue, mediumspringgreen);
+    color: azure;
+    height: 100%;
+}
+html{
+    scroll-behavior: smooth;
+}
+nav{
+height: 60px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 100;
+}
+
+nav.shadow{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.left-section {
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.Title {
+    margin: 10px 10px;
+    font-size: 45px;
+    font-weight:500;
+    color: azure;
+}
+
+.left-section i{
+    margin: 10px 0px 10px 200px;
+    color:aquamarine;
+}
+
+
+.right-section{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    margin-right: 200px;
+}
+
+.right-section.scroll{
+    margin-right: 100px;
+}
+
+.right-section ul li{
+    display: inline-block;
+    list-style: none;
+    margin:10px 0px 10px 40px;
+}
+
+.right-section ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 450;
+    cursor: pointer;
+    color: white;
+    position: relative;
+}
+
+.right-section ul li a::after{
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: rgb(11, 128, 154);;
+    position:absolute;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.5s;
+}
+
+.right-section ul li a:hover::after{
+    width: 100%;
+}
+
+.Welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+    flex-direction: column;
+}
+
+.welcome-message{
+    font-size: 60px;
+    font-weight: 600;
+    color: azure;
+}
+
+.categories{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.categories div{
+    height: 30px;
+    margin-top: 30px;
+    padding: 10px 20px 10px 20px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition:background-color 0.5s;
+}
+
+.categories div:hover {
+    background-color: azure;
+    color: #34E0A1;
+}
+
+.search-all, .resorts, .mountains, .restaurants{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search-all i, .resorts i, .mountains i, .restaurants i{
+    margin-right: 5px;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+}
+
+.search-box input{
+    height: 100%;
+    width: 800px;
+    color: #333;
+    padding: 15px;
+    padding-left: 50px;
+    padding-right:112px ;
+    font-size: 18px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 50px;
+    outline: none;
+}
+
+.search-box input::placeholder{
+    color: #333(52, 224, 161, 0.6);
+}
+
+.search-icon-button{
+    position: absolute;
+    height: 42px;
+    padding: 5px;
+    font-size: 20px;
+    color: #34E0A1;
+    border: none;
+    background-color: white; 
+    border-radius: 50px;
+    left: 8px;
+    top: 4px;
+    cursor: pointer;
+}
+
+.search-button{
+    position: absolute;
+    width: 100px;
+    height: 42px;
+    right: 5px;
+    top: 4px;
+    font-size: 18px;
+    border: none;
+    background-color: rgba(52, 224, 161, 1);
+    padding: 10px 5px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.search-button:hover{
+    background-color: rgba(52, 224, 161, 0.5);
+}
+
+.picture-preview{
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+    
+}
+.picture-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    opacity: 1;
+    transition: 0.6s;
+}
+
+.picture-container:hover{
+    opacity: 0.8;
+}
+
+
+.main-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 60px;
+    row-gap: 60px;
+    padding: 100px 200px;
+    
+}
+
+.picture-title{
+    position: absolute;
+    bottom: 40%;
+    font-size: 26px;
+    font-weight: 900;
+    max-width: 100%;
+    color: azure;
+    padding: 0px 10px;
+}
+
+.tag-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    position: absolute;
+    text-align: center;
+    row-gap: 3px;
+    bottom: 2%;
+    left: 0;
+}
+
+.tag-list li{
+margin-left: 5px;
+margin-right: 5px;
+padding: 5px 8px 5px 8px;
+background-color: rgb(45, 200, 224);
+color: #333;
+font-size: 12px;
+font-weight: 600;
+border-radius: 25px;
+}
+
+
+.post-form{
+    position: relative;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    width: 600px;
+    height: 450px;
+    top: 15%;
+    left: 30%;
+    background-image: linear-gradient(90deg, skyblue, mediumspringgreen);
+    border-radius: 10px;
+    padding: 30px;
+    transform: scale(0);
+    box-shadow:  0 0 5px rgba(0, 0, 0, 0.501);
+    transition: 0.5s ease;
+}
+
+.post-form.active{
+    transform: scale(1);
+}
+
+.right-section-form .submit-btn{
+    margin-left: 210px;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+    background: none;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    box-shadow:  inset 0 0 5px rgba(0, 0, 0, 0.501);
+    transition: 0.5s;
+}
+.right-section-form button:hover{
+    background-color: azure;
+    color: skyblue;
+}
+
+.left-section-form{
+    width: 50%; 
+    float: left;
+    box-sizing: border-box;
+    margin-right: 5%;
+}
+
+.right-section-form{
+    width: 45%;
+    float: right;
+    box-sizing: border-box;
+}
+
+.close{
+    position: absolute;
+    top: 3px;
+    right: 6px;
+    font-size: 25px;
+    color: #333;
+    cursor: pointer;
+}
+
+
+.instruction{
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 900;
+}
+
+.input-box{
+    position: relative;
+    margin-bottom: 20px;
+    
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+
+}
+
+.input-box label{
+    position: absolute;
+    font-size: 16px;
+    top:18px;
+    left: 5px;
+    color: #333;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.5;
+}
+
+.input-box input{
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.501);
+    background:none;
+    border: none;
+    border-color: none;
+    outline: none;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #162938;
+    padding: 5px 5px;
+}
+
+.file-label{
+    cursor: pointer;
+    background-color: white;
+    color: #333;
+    padding: 5px;
+    font-size: 10px;
+    transition: 0.5s;
+}
+
+.image-upload{
+    position: relative;
+} 
+.image-upload p{
+    position: absolute;
+    color: black;
+    right: 0;
+    top: 90%;
+}
+
+.file-label:hover{
+    background-color: #333;
+    color: white;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.description-container{
+    position: relative;
+    font-size: 16px;
+    color: #333;
+    margin: 20px 0;
+}
+
+.description-container textarea{
+    box-sizing: border-box;
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.501);
+    background:none;
+    border: none;
+    border-color: none;
+    outline: none;
+}
+
+.description-container p{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.Welcome.blur,.main.blur{
+    filter: blur(5px);
+  }
+
+.thumbnailPhoto{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    grid-gap: 10px;
+    grid-auto-rows: 50px;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.501);
+    overflow: auto; 
+  }
+
+.image-previews{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    grid-gap: 10px;
+    grid-auto-rows: 50px;
+    width: 100%;
+    height: 210px;
+    margin-top: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.501);
+    overflow: auto; 
+  }
+
+  .image-previews li {
+    position: relative; /* Ensure relative positioning for the remove button */
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+}
+
+.manage-form{
+    position: relative;
+    display: block;
+    position: fixed;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    top: 15%;
+    left: 35%;
+    background-image: linear-gradient(90deg, skyblue, mediumspringgreen);
+    border-radius: 10px;
+    padding: 20px;
+    transform: scale(0);
+    box-shadow:  0 0 5px rgba(0, 0, 0, 0.501);
+    transition: 0.5s ease;
+}
+
+.manage-form.active{
+    transform: scale(1);
+}
+
+.manage-form p{
+    text-align: center;
+    margin:15px;
+    font-size: 35px;
+    color: #333;
+}
+
+.checkbox-delete{
+    margin: 10px;
+}
+.title-manage{
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.title-manage:hover{
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.submit-delete{
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background: none;
+    color: #333;
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+    box-shadow:  inset 0 0 5px rgba(0, 0, 0, 0.501);
+}
+
+.submit-delete:hover{
+    background-color: azure;
+    color: skyblue;
+}
+
+.manage-titles-container{
+    height: 270px;
+    overflow: auto;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.501);;
+}
+
+
+body.noscroll{
+    overflow: hidden;
+}
+.search-all.selected{
+    background-color: azure;
+    color: black;
+}
+
+.resorts.selected{
+    background-color: azure;
+    color: black;
+}
+
+.mountains.selected{
+    background-color: azure;
+    color: black;
+}
+
+.restaurants.selected{
+    background-color: azure;
+    color: black;
+}
+
+.expand-post{
+    position: relative;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    flex-direction: column;
+    width: 1000px;
+    height: 600px;
+    top: 5%;
+    left: 15%;
+    border: solid;
+    background-image: linear-gradient(90deg, skyblue, mediumspringgreen);
+    border-radius: 10px;
+    padding: 30px;
+    transform: scale(0);
+    box-shadow:  0 0 5px rgba(0, 0, 0, 0.501);
+    transition: 0.5s ease;
+    z-index: 101;
+
+}
+
+.expand-post.active{
+    transform: scale(1);
+}
+
+.upper-part{
+    height: 70%;
+    width: 100%;
+}
+
+.picture-expanded{
+    position: relative;
+    height: 100%;
+    width: 70%;
+    float: left;
+    overflow: hidden;
+}
+
+.picture-expanded i{
+    font-size: 30px;
+    color: black;
+}
+
+.left{
+position: absolute;
+left: 1px;
+bottom: 50%;
+cursor: pointer;
+}
+
+.right{
+    position: absolute;
+    right: 1px;
+    bottom: 50%;
+    cursor: pointer;
+}
+
+.bigpic{
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    box-shadow:  0 0 5px rgba(0, 0, 0, 0.501);
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    float: right;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.title-big{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 70px;
+    color: #333;
+}
+
+.tags-expanded{
+    list-style-type: disc;
+    padding-left: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.haven-location{
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.details p{
+    text-align: center;
+    background-color: rgb(8, 194, 194);
+    font-size: 18px;
+    border-radius: 25px;
+    color: #333;
+    font-weight: 600;
+    margin: 5px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.tags-expanded li{
+    color: #333;
+    padding: 5px;
+    list-style-type: disc;
+}
+
+.description{
+    height: 30%;
+    width: 70%;
+    padding: 10px;
+    overflow: auto;
+    max-height: 200px;
+}
+
+.description p{
+    margin-top: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 18px;
+    padding: 10px;
+    word-wrap: break-word;
+    color: #333;
+    font-weight: 600;
+}
+
+.dash{
+    position: absolute;
+    font-size: 20px;
+    right: 10px;
+    top: 0;
+    color: #333;
+    cursor: pointer;
+}
+
